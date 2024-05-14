@@ -1,17 +1,8 @@
-- name: Log in to GitHub Container Registry
-  uses: docker/login-action@v1
-  with:
-    registry: ghcr.io
-    username: ${{ github.actor }}
-    password: ${{ secrets.GITHUB_TOKEN }}
-
 # Build local monorepo image
 # docker build --no-cache -t  flowise .
 
 # Run image
 # docker run -d -p 3000:3000 flowise
-
-# docker push ghcr.io/gerimate/Flowise:latest
 
 FROM node:20-alpine
 RUN apk add --update libc6-compat python3 make g++
