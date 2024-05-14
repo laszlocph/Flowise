@@ -25,7 +25,7 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 WORKDIR /usr/src
 
 # Copy the application source code into the container
-COPY..
+COPY . .
 
 # Install dependencies using PNPM
 RUN pnpm install
