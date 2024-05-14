@@ -1,8 +1,8 @@
 # Build local monorepo image
-docker build --no-cache -t flowise.
+# docker build --no-cache -t flowise.
 
 # Run image
-docker run -d -p 3000:3000 flowise
+# docker run -d -p 3000:3000 flowise
 
 # Use the official Node.js 20 image based on Alpine Linux
 FROM node:20-alpine
