@@ -1,0 +1,22 @@
+app: Flowise-preview
+env: optimal-snow
+preview: true
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  gitRepository: laszlocph/Flowise
+  gitSha: '{{ .SHA }}'
+  image:
+    registry: dockerRegistry
+    repository: 127.0.0.1:32447/{{ .APP }}
+    strategy: buildpacks
+    tag: '{{ .SHA }}'
+  ingress:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      kubernetes.io/ingress.class: nginx
+    host: laszlocph-flowise.alma.hu
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
